@@ -1,11 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerdeXpress</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Landing page de VerdeXpress :D</h1>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/LogoUsuario.png" alt="VerdeXpress">
+                <h1>VerdeXpress</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#descargar">Descargar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="Inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>VerdeXpress</h1>
+                <p class="subtitle">Siembra con tu donación, verde en el corazón</p>
+                <button class="primary-button">Descargar</button>
+                <p class="description">La nueva forma de apoyar a los parques en Hermosillo</p>
+            </div>
+            <div class="hero-image">
+                <div class="mockup-container">
+                    <div class="mockup phone-back"></div> <!- - Este va primero ahora - ->
+                    <div class="mockup phone-front">
+                        <div class="app-icon-container">
+                            <img src="img/LogoUsuario.png" alt="Logo de VerdeXpress">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Actualización para la sección "¿Qué hace VerdeXpress?" en index.html con los nombres correctos de las imágenes -->
+<section id="que-hace" class="secondary-section">
+    <div class="container">
+        <h2>¿Qué hace VerdeXpress?</h2>
+        <div class="carousel-container">
+            <button class="carousel-arrow prev-arrow" id="prevBtn">&#10094;</button>
+            <div class="carousel-wrapper" id="carousel">
+                <div class="carousel-item">
+                    <img src="img/img1.jpeg" alt="Registro de parques con geolocalización">
+                    <p>Registro de parques con geolocalización</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img2.png" alt="Donaciones monetarias y donaciones en especie">
+                    <p>Donaciones monetarias y donaciones en especie</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img3.png" alt="Seguimiento de avances">
+                    <p>Seguimiento de avances</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img4.jpg" alt="Comprobantes de las donaciones">
+                    <p>Comprobantes de las donaciones</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img5.webp" alt="Video con más información">
+                    <p>Video con más información</p>
+                </div>
+            </div>
+            <button class="carousel-arrow next-arrow" id="nextBtn">&#10095;</button>
+        </div>
+        <div class="carousel-dots" id="dots">
+            <!-- Los puntos indicadores se generarán con JavaScript -->
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 VerdeXpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
