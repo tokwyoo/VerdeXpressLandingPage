@@ -134,6 +134,27 @@ document.addEventListener('DOMContentLoaded', function() {
             prevSlide();
         }
     }
+    
+    // Añadir análisis de eventos para los botones de descarga
+    const downloadButtons = document.querySelectorAll('.download-button, .primary-button');
+    
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            // Si deseas implementar un análisis o seguimiento de descargas
+            console.log('Descarga iniciada');
+            
+            // Si el botón no es un enlace directo (como el caso del botón de la sección hero)
+            if (!this.href) {
+                // Obtener el enlace padre (en caso del botón de la sección hero)
+                const parentLink = this.closest('a');
+                if (parentLink && parentLink.href) {
+                    // No es necesario prevenir el comportamiento predeterminado
+                    // ya que queremos que el enlace funcione
+                    console.log('Redirigiendo a:', parentLink.href);
+                }
+            }
+        });
+    });
 });
 
 // Funcionamiento de la aplicación saludar

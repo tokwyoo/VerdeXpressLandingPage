@@ -50,7 +50,7 @@ body {
 
 header {
     background-color: #f8f8f8; /* Color de fondo del encabezado */
-    padding: 10px 0; /* Ancho del headder */
+    padding: 0px 0; /* Ancho del headder */
     border-bottom: 1px solid #eee; /* Borde inferior del encabezado */
 }
 
@@ -95,7 +95,7 @@ nav ul li a {
 }
 
 /* Botón "Descargar" en el header */
-nav ul li a[href="#descargar"] {
+nav ul li a.download-button {
     background-color: rgb(120, 177, 83); /* Fondo verde */
     color: #fff; /* Texto blanco */
     border: 2px solid rgb(120, 177, 83); /* Borde verde */
@@ -103,9 +103,10 @@ nav ul li a[href="#descargar"] {
     border-radius: 5px; /* Bordes redondeados */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
     font-weight: bold;
+    display: inline-block;
 }
 
-nav ul li a[href="#descargar"]:hover {
+nav ul li a.download-button:hover {
     background-color: #fff; /* Fondo blanco al pasar el ratón */
     color: rgb(120, 177, 83); /* Texto verde al pasar el ratón */
 }
@@ -140,6 +141,11 @@ nav ul li a[href="#descargar"]:hover {
     margin-bottom: 40px; /* Espacio debajo del subtítulo */
     font-weight: semibold; /* Peso de la fuente del subtítulo */
     /* Para hacerlo mas grande, aumentar el font-size */
+}
+
+.hero-content a {
+    text-decoration: none; /* Eliminar subrayado */
+    display: inline-block; /* Para que el botón mantenga sus dimensiones */
 }
 
 .primary-button {
@@ -223,8 +229,8 @@ nav ul li a[href="#descargar"]:hover {
 .hero {
     background-color: rgb(120, 177, 83); /* Color de fondo verde */
     color: #fff; /* Color del texto */
-    padding: 70px 0; /* Espacio vertical de la sección */
-    padding-bottom: 100px; /* Reducir un poco el padding inferior */
+    padding: 80px 0; /* Espacio vertical de la sección */
+    padding-bottom: 180px; /* Reducir un poco el padding inferior */
     position: relative; /* Para posicionar el degradado */
     margin-bottom: 0; /* Eliminar cualquier margen inferior */
 }
@@ -236,14 +242,14 @@ nav ul li a[href="#descargar"]:hover {
     left: 0;
     right: 0;
     bottom: -100px; /* Se extiende 100px hacia abajo */
-    height: 100px;
+    height: 200px;
     background: linear-gradient(to bottom, rgb(120, 177, 83) 0%, #fff 100%);
     z-index: 1; /* Asegurarse de que esté por encima del contenido */
 }
 
 /* Ajustar el inicio de la sección secundaria */
 .secondary-section {
-    padding-top: 120px; /* Aumentar el padding superior para compensar */
+    padding-top: 100px; /* Aumentar el padding superior para compensar */
     margin-top: 0; /* Eliminar cualquier margen superior */
     background-color: #fff;
     padding-bottom: 150px;
@@ -268,9 +274,8 @@ nav ul li a[href="#descargar"]:hover {
     color: rgb(120, 177, 83); /* Color del título */
     text-align: center; /* Alinear el texto al centro */
     margin-top: 70px;
-    margin-bottom: 75px; /* Espacio debajo del título */
+    margin-bottom: 100px; /* Espacio debajo del título */
     font-weight: semibold; /* Peso de la fuente del título */
-    /* ¿Qué hace VerdeXpress? - Semibold */
 }
 
 /* Ajustar el tamaño de la sección secundaria para que coincida con la sección hero */
@@ -391,7 +396,7 @@ nav ul li a[href="#descargar"]:hover {
     content: '';
     display: block;
     height: 100px;
-    background-image: url('img/wave.svg');
+    background-image: url('img/green-wave.png'); /* Cambia la ruta a la imagen de la onda */
     background-size: cover;
     background-position: center top;
     margin-top: 50px;
@@ -428,4 +433,373 @@ footer {
     font-size: 0.8em; /* Tamaño de la fuente del texto */
     font-weight: medium; /* Peso de la fuente del texto */
     /* Texto del footer - Medium */
+}
+
+/* Sección de Guía Rápida */
+.guide-section {
+    background-color: rgb(120, 177, 83); /* Color de fondo verde igual que la sección hero */
+    color: #fff;
+    padding: 70px 0; /* Mismo padding vertical que otras secciones */
+    padding-bottom: 150px; /* Mismo padding inferior que otras secciones */
+    position: relative;
+    min-height: 430px; /* Altura mínima para mantener consistencia con las otras secciones */
+}
+
+/* Conexión entre secciones */
+/* Modificamos la sección secundaria para crear una onda inferior que se conecte con la guía rápida */
+.secondary-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+}
+
+.guide-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+.guide-steps {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guide-step {
+    flex: 1;
+    min-width: 220px;
+    margin: 0 15px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Añadir cursor pointer para mejorar la experiencia de usuario */
+}
+
+.phone-mockup {
+    width: 140px;
+    height: 280px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: rotate(-15deg); /* Rotar los dispositivos como en el prototipo */
+    transition: transform 0.3s ease;
+}
+
+.guide-step:nth-child(even) .phone-mockup {
+    transform: rotate(15deg); /* Alternar la rotación para dispositivos pares */
+}
+
+.guide-step:hover .phone-mockup {
+    transform: rotate(0deg) scale(1.05); /* Efecto al pasar el mouse para todos los mockups */
+}
+
+.guide-step h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 992px) {
+    .guide-steps {
+        justify-content: center;
+    }
+    
+    .guide-step {
+        flex: 0 0 40%;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-step {
+        flex: 0 0 80%;
+    }
+}
+
+.about-section {
+    position: relative;
+    padding: 70px 0;
+    min-height: 500px;
+    overflow: hidden;
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+/* Animación para el mesh gradient */
+@keyframes hero-gradient-animation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.mesh-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    --s-start-0: 5%;
+    --s-end-0: 72%;
+    --x-0: 60%;
+    --c-0: hsla(96, 37%, 50%, 1);
+    --y-0: 24%;
+    --s-start-1: 9%;
+    --s-end-1: 55%;
+    --x-1: 85%;
+    --c-1: hsla(106, 25%, 80%, 1);
+    --y-1: 80%;
+    --s-start-2: 13%;
+    --s-end-2: 68%;
+    --x-2: 24%;
+    --c-2: hsla(96, 38%, 30%, 1);
+    --y-2: 7%;
+    --s-start-3: 9%;
+    --s-end-3: 55%;
+    --x-3: 85%;
+    --c-3: hsla(95, 50%, 70%, 1);
+    --y-3: 80%;
+    --s-start-4: 5%;
+    --s-end-4: 52%;
+    --y-4: 82%;
+    --x-4: 13%;
+    --c-4: hsla(96, 39%, 39%, 1);
+    --s-start-5: 5%;
+    --s-end-5: 72%;
+    --x-5: 60%;
+    --c-5: hsla(96, 37%, 50%, 1);
+    --y-5: 24%;
+    background-color: hsla(358, 0%, 100%, 1);
+    background-image: radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), 
+                    radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), 
+                    radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), 
+                    radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), 
+                    radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4)), 
+                    radial-gradient(circle at var(--x-5) var(--y-5), var(--c-5) var(--s-start-5), transparent var(--s-end-5));
+    animation: hero-gradient-animation 10s linear infinite normal;
+    background-blend-mode: normal, normal, normal, normal, normal, normal;
+    background-size: 200% 200%;
+}
+
+/* Estilos para la sección "Quiénes Somos" */
+.about-section {
+    position: relative;
+    padding: 70px 0;
+    min-height: 500px;
+    background-color: transparent;
+    color: #fffdfd;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: bold;
+}
+
+.about-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.video-container, .photo-container {
+    flex: 1;
+    min-width: 300px;
+    margin: 15px;
+    position: relative;
+}
+
+.content-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #777;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .video-container, .photo-container {
+        width: 100%;
+    }
+}
+
+/* Estilos actualizados para la sección de Preguntas Frecuentes */
+.faq-section {
+    background-color: rgb(120, 177, 83);
+    color: #fff;
+    padding: 70px 0;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question h3 {
+    color: rgb(120, 177, 83);
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.faq-icon {
+    color: rgb(120, 177, 83);
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f9f9f9;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 0 30px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 20px 0;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Estilos actualizados para el Footer */
+footer {
+    background-color: rgb(120, 177, 83);
+    color: #fff;
+    padding: 20px 0;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.footer-credits {
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.footer-credits p {
+    margin: 0 10px 0 0;
+}
+
+.footer-logo {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-copyright {
+        margin-bottom: 10px;
+    }
+    
+    .footer-credits {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-credits p {
+        margin: 0 0 10px 0;
+    }
 }
