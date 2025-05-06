@@ -1,10 +1,4 @@
-// Aquí puedes agregar la lógica de tu página, como animaciones,
-// interacción con el usuario, etc.
-
 console.log("¡Script cargado!");
-
-// Agregar este código al archivo script.js
-
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos del carrusel
     const carousel = document.getElementById('carousel');
@@ -155,13 +149,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
-
-// Funcionamiento de la aplicación saludar
-document.addEventListener('DOMContentLoaded', function() {
-    // Importar la función saludar desde functions.js
-    // (Asegúrate de incluir functions.js en tu HTML antes de script.js)
-    if (typeof saludar === 'function') {
-        saludar('Usuario de VerdeXpress');
-    }
 });
