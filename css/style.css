@@ -533,7 +533,6 @@ nav ul li a {
     padding: var(--section-padding);
     padding-bottom: 100px;
     position: relative;
-    min-width: 600px;
     z-index: 1;
     text-align: center;
 }
@@ -650,7 +649,6 @@ nav ul li a {
 
 @media screen and (max-width: 768px) {
     .secondary-section {
-        min-width: unset;
         width: 100%;
         padding: 50px 10px;
     }
@@ -782,11 +780,13 @@ nav ul li a {
 }
 
 .wave-image {
-     width: 100%;
+    width: 102%;
     height: auto;
     display: block;
     position: relative;
     transform: translateY(0px);
+    border-bottom: 1px solid var(--primary-color);
+    box-shadow: 0 1px 2px var(--primary-color);
 }
 
 /* Sección 3 Guía Rápida */
