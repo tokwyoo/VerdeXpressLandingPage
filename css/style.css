@@ -122,6 +122,9 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    min-height: 100vh; /* Añadimos esto */
+    display: flex;
+    flex-direction: column; /* Para que el footer se pegue abajo */
 }
 
 .container {
@@ -226,7 +229,7 @@ nav ul li a {
 .hero {
     background-color: var(--primary-color);
     color: var(--text-light);
-    padding: 100px 0 220px;
+    padding: 150px 0 330px;
     position: relative;
     margin-bottom: 0;
 }
@@ -391,13 +394,18 @@ nav ul li a {
 }
 
 @media screen and (max-width: 768px) {
+    .hero {
+        padding: 80px 0 200px;
+    }
+
     .hero .container {
         flex-direction: row;
         padding: 0 20px;
     }
     
     .hero-content {
-        padding-right: 20px;
+        text-align: center;
+        padding-right: 0;
     }
     
     .hero h1 {
@@ -586,19 +594,24 @@ nav ul li a {
     transform: translateY(-50%);
     background: none;
     border: none;
-    font-size: 2em;
-    color: var(--primary-color);
     cursor: pointer;
     padding: 10px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
     z-index: 10;
-    /* Centrar las flechas (ahora texto) */
+    /* Centrar las flechas */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;  /* Ancho fijo para las flechas */
-    height: 40px; /* Alto fijo para las flechas */
+    width: 40px;
+    height: 40px;
+}
+
+.carousel-arrow svg {
+    width: 100%; 
+    height: 100%;
+    max-width: 35px;
+    max-height: 35px;
 }
 
  .carousel-arrow:hover {
@@ -650,6 +663,15 @@ nav ul li a {
     
     .carousel-item img {
         max-height: 200px;
+    }
+
+    .carousel-arrow {
+        top: 40%;
+    }
+
+    .carousel-arrow svg {
+        max-width: 20px;
+        max-height: 20px;
     }
     
     .prev {
@@ -730,18 +752,29 @@ nav ul li a {
     transform: scale(1.05);
 }
 
-/* Ajustes responsivos */
 @media screen and (max-width: 768px) {
     .youtube-container {
         max-height: 200px;
+    }
+
+    .youtube-play-button {
+        width: 40px;  /* Reducimos el ancho del botón */
+        height: 28px; /* Reducimos la altura del botón */
+        border-radius: 8px; /* Ajustamos el radio del borde */
+    }
+
+    .youtube-play-button::before {
+        border-width: 6px 0 6px 12px; /* Reducimos el tamaño del triángulo */
+        margin-left: 2px;
     }
 }
 
 /*wave*/
 .wave-transition {
-    position: relative;
+     position: relative;
     width: 100%;
-    height: 290px;
+    height: auto; 
+    display: block;
     overflow: hidden;
     margin-top: -100px;
     margin-bottom: 0px;
@@ -749,10 +782,11 @@ nav ul li a {
 }
 
 .wave-image {
-    width: 100%;
+     width: 100%;
     height: auto;
     display: block;
     position: relative;
+    transform: translateY(0px);
 }
 
 /* Sección 3 Guía Rápida */
@@ -950,6 +984,7 @@ nav ul li a {
 /* Media queries para responsividad */
 @media (max-width: 992px) {
     .about-content {
+        text-align: center;
         flex-direction: column;
     }
     
@@ -1065,6 +1100,7 @@ footer {
     padding: 20px 0;
     font-size: 0.9em;
     width: 100%;
+    margin-top: auto;
 }
 
 .footer-container {
@@ -1134,14 +1170,14 @@ footer {
 /* Ajuste para la transición de onda */
 @media (max-width: 768px) {
     .wave-transition {
-        height: 180px;
+        height: auto;
         margin-top: -80px;
     }
 }
 
 @media (max-width: 576px) {
     .wave-transition {
-        height: 120px;
+        height: auto;
         margin-top: -100px;
     }
 }
