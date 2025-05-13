@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerdeXpress</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mesh.css">
 </head>
 <body>
     <header>
@@ -20,12 +21,13 @@
             </nav>
         </div>
     </header>
-
+    
+<!-- Sección 1 - Inicio -->
     <section id="Inicio" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>VerdeXpress</h1>
-                <p class="subtitle">Siembra con tu donación, verde en el corazón</p>
+                <p class="subtitle">Siembra con tu donación,<br> verde en el corazón</p>
                 <a href="https://github.com/tokwyoo/VerdeXpress/releases/download/v1.0.0/VerdeXpress-v1.0.0.apk" download>
                     <button class="primary-button">Descargar</button>
                 </a>
@@ -44,37 +46,47 @@
         </div>
     </section>
 
-  <!-- Sección 2 -->
+ <!-- Sección 2 - ¿Qué hace VerdeXpress? -->
 <section id="que-hace" class="secondary-section">
     <div class="container">
-        <h2>¿Qué hace VerdeXpress?</h2>
+        <h2 class="section-title">¿Qué hace VerdeXpress?</h2>
         <div class="carousel-container">
-            <button class="carousel-arrow prev-arrow" id="prevBtn">&#10094;</button>
-            <div class="carousel-wrapper" id="carousel">
+            <div class="carousel-arrow prev">&#9664;</div>
+            <div class="carousel-slide">
                 <div class="carousel-item">
-                    <img src="img/img1.jpeg" alt="Registro de parques con geolocalización">
-                    <p>Registro de parques con geolocalización</p>
+                    <img src="img/resumen.png" alt="Resumen de tus parques apoyados" class="carousel-image">
+                    <p class="carousel-item-description">Resumen de tus parques apoyados</p>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/img2.png" alt="Donaciones monetarias y donaciones en especie">
-                    <p>Donaciones monetarias y donaciones en especie</p>
+                    <img src="img/registrarparques.png" alt="Registrar parques de toda la ciudad" class="carousel-image">
+                    <p class="carousel-item-description">Registrar parques de toda la ciudad</p>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/img3.png" alt="Seguimiento de avances">
-                    <p>Seguimiento de avances</p>
+                    <img src="img/donaciones.png" alt="Donaciones monetarias y donaciones en especie" class="carousel-image">
+                    <p class="carousel-item-description">Donaciones monetarias y donaciones en especie</p>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/img4.jpg" alt="Comprobantes de las donaciones">
-                    <p>Comprobantes de las donaciones</p>
+                    <img src="img/parquesfav.png" alt="Gestiona tus parques favoritos" class="carousel-image">
+                    <p class="carousel-item-description">Gestiona tus parques favoritos</p>
                 </div>
-                <div class="carousel-item">
-                    <img src="img/img5.webp" alt="Video con más información">
-                    <p>Video con más información</p>
+                <div class="carousel-item video-item">
+                    <a href="https://youtu.be/PLscUZANzQY" target="_blank" class="video-link">
+                        <div class="youtube-container">
+                            <img src="img/miniatura.png" alt="¿Qué es VerdeXpress?" class="carousel-image youtube-thumbnail">
+                            <div class="youtube-play-button"></div>
+                        </div>
+                        <p class="carousel-item-description">¿Qué es VerdeXpress? Video con más información</p>
+                    </a>
                 </div>
             </div>
-            <button class="carousel-arrow next-arrow" id="nextBtn">&#10095;</button>
-        </div>
-        <div class="carousel-dots" id="dots">
+            <div class="carousel-arrow next">&#9654;</div>
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+            </div>
         </div>
     </div>
 </section>
@@ -90,25 +102,25 @@
         <div class="guide-steps">
             <div class="guide-step">
                 <div class="phone-mockup">
-                    <!-- Aquí puedes añadir una imagen de pantalla si lo deseas -->
+                    <img src="img/registrate.gif" alt="Regístrate en VerdeXpress">
                 </div>
                 <h3>Regístrate</h3>
             </div>
             <div class="guide-step">
                 <div class="phone-mockup">
-                    <!-- Aquí puedes añadir una imagen de pantalla si lo deseas -->
+                    <img src="img/subetuparque.gif" alt="Sube tu parque en VerdeXpress">
                 </div>
                 <h3>Sube tu parque</h3>
             </div>
             <div class="guide-step">
                 <div class="phone-mockup">
-                    <!-- Aquí puedes añadir una imagen de pantalla si lo deseas -->
+                    <img src="img/dona.gif" alt="Dona en VerdeXpress">
                 </div>
                 <h3>Dona</h3>
             </div>
             <div class="guide-step">
                 <div class="phone-mockup">
-                    <!-- Aquí puedes añadir una imagen de pantalla si lo deseas -->
+                    <img src="img/rescata.gif" alt="Rescata parques con VerdeXpress">
                 </div>
                 <h3>Rescata</h3>
             </div>
@@ -119,24 +131,22 @@
 <!-- Sección 4: Quiénes Somos -->
 <section id="quienes-somos" class="about-section">
     <div class="mesh-background"></div>
-    <div class="container">
+    <div class="transition-overlay top"></div>  <div class="container">
         <h2>¿Quiénes somos?</h2>
         <div class="about-content">
-            <div class="video-container">
-                <div class="content-box">
-                    <!-- Aquí irá el video en el futuro -->
-                    <p>Espacio para video</p>
-                </div>
-            </div>
             <div class="photo-container">
                 <div class="content-box">
-                    <!-- Aquí irá la foto en el futuro -->
-                    <p>Espacio para foto</p>
+                    <img src="img/equipoverdexpress.jpg" alt="Equipo VerdeXpress">
                 </div>
+            </div>
+            <div class="text-container">
+                <p>Somos estudiantes de la Unison que quieren ver un Hermosillo más verde. 
+                VerdeXpress nace para que entre todos, con un clic, podamos cuidar nuestros 
+                parques y darles nueva vida.</p>
             </div>
         </div>
     </div>
-</section>
+    <div class="transition-overlay bottom"></div> </section>
 
 <!-- Sección 5: Preguntas Frecuentes-->
 <section id="preguntas-frecuentes" class="faq-section">

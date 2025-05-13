@@ -222,14 +222,13 @@ nav ul li a {
     background-color: #e0e0e0;
 }
 
-/* Sección 1 Inicio */
+/* Sección 1 - Inicio */
 .hero {
     background-color: var(--primary-color);
     color: var(--text-light);
     padding: 100px 0 220px;
     position: relative;
     margin-bottom: 0;
-    padding: 100px 0 250px;
 }
 
 .hero::after {
@@ -242,7 +241,7 @@ nav ul li a {
     background: linear-gradient(to bottom, transparent 5%, var(--bg-light) 95%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: 1;
+    z-index: 0;
 }
 
 .hero .container {
@@ -260,6 +259,7 @@ nav ul li a {
     font-size: 100px;
     margin-bottom: 10px;
     font-weight: bold;
+    line-height: 1;
 }
 
 .hero .subtitle {
@@ -323,6 +323,7 @@ nav ul li a {
     border-radius: 25px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .app-icon-container img {
@@ -341,137 +342,410 @@ nav ul li a {
     z-index: 2;
 }
 
-/* Seccion 2  ¿Qué hace verdexpress? */
-.secondary-section {
-    padding: 100px 0 150px;
-    margin-top: 0;
-    margin-bottom: 100px;
-    background-color: var(--bg-light);
-    position: relative;
-    z-index: 0;
-    min-height: 430px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.secondary-section h2 {
-    font-size: 2em;
+.primary-button {
+    background-color: white;
     color: var(--primary-color);
-    text-align: center;
-    margin-top: 70px;
-    margin-bottom: 100px;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
     font-weight: 600;
-    position: relative;
-    z-index: 2;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Carrusel */
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries para responsividad manteniendo el diseño side-by-side */
+@media screen and (max-width: 1200px) {
+    .hero h1 {
+        font-size: 80px;
+    }
+    
+    .hero .subtitle {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .hero {
+        padding: 80px 0 180px;
+    }
+    
+    .hero h1 {
+        font-size: 64px;
+    }
+    
+    .hero .subtitle {
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+    
+    .mockup-container {
+        width: 160px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero .container {
+        flex-direction: row;
+        padding: 0 20px;
+    }
+    
+    .hero-content {
+        padding-right: 20px;
+    }
+    
+    .hero h1 {
+        font-size: 48px;
+    }
+    
+    .hero .subtitle {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+    
+    .hero .description {
+        font-size: 16px;
+    }
+    
+    .primary-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+    
+    .mockup-container {
+        width: 140px;
+        height: 300px;
+    }
+    
+    .mockup.phone-back {
+        transform: translateX(60px) translateY(-15px);
+    }
+    
+    .mockup.phone-front {
+        transform: translateX(20px) translateY(10px);
+    }
+    
+    .app-icon-container {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hero {
+        padding: 60px 0 160px;
+    }
+    
+    .hero .container {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .hero-content {
+        padding-right: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero .subtitle {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .hero .description {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    .primary-button {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    
+    .mockup-container {
+        width: 110px;
+        height: 240px;
+    }
+    
+    .mockup.phone-back {
+        transform: translateX(40px) translateY(-10px);
+    }
+    
+    .mockup.phone-front {
+        transform: translateX(15px) translateY(5px);
+    }
+    
+    .app-icon-container {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero .subtitle {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .mockup-container {
+        width: 90px;
+        height: 200px;
+    }
+    
+    .mockup.phone-back {
+        transform: translateX(30px) translateY(-8px);
+    }
+    
+    .mockup.phone-front {
+        transform: translateX(10px) translateY(5px);
+    }
+    
+    .app-icon-container {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* Seccion 2  ¿Qué hace verdexpress?  */
+ .secondary-section {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding: var(--section-padding);
+    padding-bottom: 100px;
+    position: relative;
+    min-width: 600px;
+    z-index: 1;
+    text-align: center;
+}
+
+ .secondary-section .section-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+}
+
 .carousel-container {
     position: relative;
     width: 100%;
-    margin: 30px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
     overflow: hidden;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-bottom: 20px;
 }
 
-.carousel-wrapper {
+ .carousel-slide {
     display: flex;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .carousel-item {
-    min-width: calc(33.333% - 20px);
-    margin: 0 10px;
-    text-align: center;
-    flex-shrink: 0;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-item img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    max-height: 450px;
+    margin-bottom: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+ .carousel-item-description {
+    color: var(--primary-color);  /* Texto verde */
+    font-weight: bold;
+}
+
+ .carousel-arrow {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 10px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    /* Centrar las flechas (ahora texto) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;  /* Ancho fijo para las flechas */
+    height: 40px; /* Alto fijo para las flechas */
+}
+
+ .carousel-arrow:hover {
+    opacity: 1;
+}
+
+ .prev {
+    left: -15px;
+}
+
+ .next {
+    right: 15px;
+}
+
+ .carousel-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+ .dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+ .dot.active {
+    background-color: var(--primary-color);
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .secondary-section {
+        min-width: unset;
+        width: 100%;
+        padding: 50px 10px;
+    }
+    
+    .carousel-container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 90%;
+    }
+    
+    .carousel-item img {
+        max-height: 200px;
+    }
+    
+    .prev {
+        left: -10px;
+    }
+    
+    .next {
+        right: -10px;
+    }
+}
+
+/* Estilos adicionales para la sección 2 "¿Qué hace VerdeXpress?" */
+.carousel-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 450px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* YouTube video style */
+.youtube-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    max-height: 360px;
     margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    aspect-ratio: 16/9;
+}
+
+.youtube-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+    border: none !important;
+    box-shadow: none !important;
+    transition: transform 0.3s ease;
+}
+
+.youtube-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.youtube-play-button::before {
+    content: "";
+    border-style: solid;
+    border-width: 10px 0 10px 20px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 4px;
+}
+
+.video-link {
+    text-decoration: none;
+    color: inherit;
     display: block;
 }
 
-.carousel-item p {
-    margin-top: 15px;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 15px;
+.youtube-container:hover .youtube-thumbnail {
+    transform: scale(1.05);
 }
 
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 10;
-    opacity: 0.8;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    .youtube-container {
+        max-height: 200px;
+    }
 }
 
-.carousel-arrow:hover {
-    opacity: 1;
-    background-color: rgb(100, 157, 63);
-}
-
-.prev-arrow {
-    left: 1px;
-}
-
-.next-arrow {
-    right: 1px;
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ccc;
-    margin: 0 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.dot:hover {
-    transform: scale(1.2);
-}
-
-.dot.active {
-    background-color: var(--primary-color);
-    transform: scale(1.2);
-}
-
+/*wave*/
 .wave-transition {
     position: relative;
     width: 100%;
-    height: 260px;
+    height: 290px;
     overflow: hidden;
-    margin-top: -120px;
-    margin-bottom: -30px;
-    z-index: 2;
+    margin-top: -100px;
+    margin-bottom: 0px;
+    z-index: 4;
 }
 
 .wave-image {
@@ -488,13 +762,14 @@ nav ul li a {
     padding: var(--section-padding);
     padding-bottom: var(--section-padding-bottom);
     position: relative;
-    min-height: 430px;
+    min-height: 600px;
+    z-index: 1;
 }
 
 .guide-section h2 {
     text-align: center;
     font-size: 2.5em;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     font-weight: 600;
 }
 
@@ -518,14 +793,26 @@ nav ul li a {
 }
 
 .phone-mockup {
-    width: 140px;
-    height: 280px;
+    width: 160px;
+    height: 300px;
     background-color: var(--bg-light);
     border-radius: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transform: rotate(-15deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Para que las imágenes no se salgan del contenedor */
+    position: relative; /* Para el posicionamiento de las imágenes */
+}
+
+/* Estilo para las imágenes dentro de los mockups */
+.phone-mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción y cubre todo el contenedor */
+    display: block;
+    border-radius: 20px; /* Mantiene el borde redondeado */
+    transition: transform 0.3s ease; /* Transición suave para hover */
 }
 
 .guide-step:nth-child(even) .phone-mockup {
@@ -534,6 +821,7 @@ nav ul li a {
 
 .guide-step:hover .phone-mockup {
     transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al hacer hover */
 }
 
 .guide-step h3 {
@@ -542,14 +830,58 @@ nav ul li a {
     font-weight: 600;
 }
 
+/* Ajustes responsivos para diferentes tamaños de pantalla */
+@media (max-width: 992px) {
+    .guide-steps {
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .guide-step {
+        flex: 0 0 calc(50% - 30px); /* 2 elementos por fila */
+        max-width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-section h2 {
+        margin-bottom: 50px;
+    }
+    
+    .phone-mockup {
+        width: 140px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 576px) {
+    .guide-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .guide-step {
+        flex: 0 0 100%;
+        max-width: 300px;
+        margin-bottom: 50px;
+    }
+    
+    .phone-mockup {
+        width: 160px;
+        height: 300px;
+    }
+}
+
 /* Sección 4 Quiénes Somos */
 .about-section {
     position: relative;
     padding: var(--section-padding);
-    min-height: 500px;
-    overflow: hidden;
-    background-color: transparent;
+    min-height: 700px;
+    overflow: visible; /* Permitir las transiciones */
+    background-color: var(--primary-color); /* Color verde primario */
     color: #fffdfd;
+    z-index: 2; /* Mayor que el mesh pero menor que los elementos de contenido */
+    margin-bottom: 0; /* Eliminar solapamiento */
 }
 
 .about-section h2 {
@@ -564,34 +896,50 @@ nav ul li a {
 
 .about-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Distribución de espacio entre elementos */
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap;
     position: relative;
     z-index: 2;
 }
 
-.video-container, .photo-container {
-    flex: 1;
-    min-width: 300px;
-    margin: 15px;
+.photo-container {
+    flex: 0 0 55%; /* Ocupa el 55% del espacio disponible */
+    max-width: 55%;
     position: relative;
+}
+
+.text-container {
+    flex: 0 0 40%; /* Ocupa el 40% del espacio disponible */
+    max-width: 40%;
+    color: #ffffff;
+    padding: 20px;
+    text-align: left;
+}
+
+.text-container p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .content-box {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
-    padding: 20px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0; /* Sin padding para que la imagen ocupe todo el espacio */
+    overflow: hidden; /* Para que la imagen no sobresalga del borde redondeado */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: #777;
-    font-size: 18px;
+    height: 450px; /* Altura fija para el recuadro */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubrirá todo el espacio disponible */
+    display: block; /* Elimina espacio adicional debajo de la imagen */
+    border-radius: 15px; /* Coincide con el borde del content-box */
 }
 
 .content-box:hover {
@@ -599,53 +947,43 @@ nav ul li a {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.mesh-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    --x-0: 60%;
-    --c-0: hsla(96, 37%, 50%, 1);
-    --y-0: 24%;
-    --x-1: 85%;
-    --c-1: hsla(106, 25%, 80%, 1);
-    --y-1: 80%;
-    --x-2: 24%;
-    --c-2: hsla(96, 38%, 30%, 1);
-    --y-2: 7%;
-    --x-3: 85%;
-    --c-3: hsla(95, 50%, 70%, 1);
-    --y-3: 80%;
-    --y-4: 82%;
-    --x-4: 13%;
-    --c-4: hsla(96, 39%, 39%, 1);
-    --x-5: 60%;
-    --c-5: hsla(96, 37%, 50%, 1);
-    --y-5: 24%;
-    background-color: hsla(358, 0%, 100%, 1);
-    background-image: radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), 
-                      radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), 
-                      radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), 
-                      radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), 
-                      radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4)), 
-                      radial-gradient(circle at var(--x-5) var(--y-5), var(--c-5) var(--s-start-5), transparent var(--s-end-5));
-    animation: hero-gradient-animation 10s linear infinite normal;
-    background-blend-mode: normal, normal, normal, normal, normal, normal;
-    background-size: 200% 200%;
+/* Media queries para responsividad */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .photo-container, .text-container {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .content-box {
+        height: 300px;
+    }
+    
+    .text-container {
+        padding: 0;
+        text-align: center;
+    }
 }
 
-/* Preguntas Frecuentes */
+/* Sección 5 - Preguntas Frecuentes */
 .faq-section {
     background-color: var(--primary-color);
     color: var(--text-light);
     padding: var(--section-padding);
     padding-bottom: 100px;
     position: relative;
+    margin-top: -1px; /* Eliminar el espacio entre las secciones */
+    z-index: 4;
 }
 
 .faq-section h2 {
+    position: relative;
+    z-index: 5;
+    padding-top: 30px;
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 50px;
@@ -719,13 +1057,14 @@ nav ul li a {
     transform: rotate(45deg);
 }
 
-/* Footer */
+/* Footer responsivo mejorado */
 footer {
     background-color: var(--primary-color);
     border-top: 2px solid rgba(255, 255, 255);
     color: var(--text-light);
     padding: 20px 0;
     font-size: 0.9em;
+    width: 100%;
 }
 
 .footer-container {
@@ -733,6 +1072,16 @@ footer {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-copyright {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
 }
 
 .footer-copyright p {
@@ -742,11 +1091,14 @@ footer {
 .footer-credits {
     display: flex;
     align-items: center;
-    text-align: right;
+    justify-content: flex-end;
+    flex: 1;
+    min-width: 200px;
 }
 
 .footer-credits p {
     margin: 0 10px 0 0;
+    text-align: right;
 }
 
 .footer-logo {
@@ -755,63 +1107,41 @@ footer {
     margin-left: 10px;
 }
 
-/* Media queries */
-@media (max-width: 992px) {
-    .carousel-item img {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .guide-steps {
-        justify-content: center;
-    }
-    
-    .guide-step {
-        flex: 0 0 40%;
-        margin-bottom: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .carousel-item img {
-        width: 160px;
-        height: 160px;
-    }
-    
-    .guide-step {
-        flex: 0 0 80%;
-    }
-    
-    .about-content {
-        flex-direction: column;
-    }
-    
-    .video-container, .photo-container {
-        width: 100%;
-    }
-    
+/* Media queries para responsividad */
+@media screen and (max-width: 600px) {
     .footer-container {
         flex-direction: column;
         text-align: center;
+        gap: 15px;
     }
     
     .footer-copyright {
+        text-align: center;
         margin-bottom: 10px;
     }
     
     .footer-credits {
-        flex-direction: column;
+        justify-content: center;
         text-align: center;
     }
     
     .footer-credits p {
-        margin: 0 0 10px 0;
+        text-align: center;
+        margin: 0 5px;
+    }
+}
+
+/* Ajuste para la transición de onda */
+@media (max-width: 768px) {
+    .wave-transition {
+        height: 180px;
+        margin-top: -80px;
     }
 }
 
 @media (max-width: 576px) {
-    .carousel-item img {
-        width: 200px;
-        height: 200px;
+    .wave-transition {
+        height: 120px;
+        margin-top: -100px;
     }
 }
